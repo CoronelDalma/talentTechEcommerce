@@ -1,0 +1,31 @@
+.product-card {
+    width: max(226px, 16vw);
+    max-width: 300px;
+    height: 300px;
+    background: var(--bg-300);
+}
+
+.icons-product-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.product-image {
+    height: 100%;
+}
+
+.info-product-card {
+    height:40%;
+    padding: 8px 16px;
+}
+
+.product-card-title {
+    height: 3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    margin: 0;
+    padding: 0;
+}
