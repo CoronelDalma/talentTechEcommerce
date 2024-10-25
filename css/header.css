@@ -1,5 +1,5 @@
 /* ------ HEADER -----------*/
-#header {
+.header {
     /* background: red;*/
      display: flex;
      flex-direction: column;
