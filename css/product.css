@@ -1,3 +1,10 @@
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
 .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,7 +28,25 @@
     margin-bottom: 10px;
 }
 
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
 
+.price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-stock {
+    font-weight: var(--medium-text);
+}
+
+.product-description {
+    margin: 16px 0;
+    min-height: 7rem;
+}
 
 @media (max-width: 768px) {
     .product-container {
