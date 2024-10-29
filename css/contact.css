@@ -40,10 +40,21 @@
     gap: 32px;
 }
 
-#map iframe{
-    border: 0;
+#map {
+    position: relative;
+    width: 100%;
+    padding-bottom: 34.25%;
+    height: 0;
     border-radius: var(--border-radius);
-    height: 250px;
+    overflow: hidden;
+}
+
+#map iframe{
+    position:relative;
+    top: 0;
+    left: 0;
+    border: 0;
+    width: 100%;
 }
 
 .form {
@@ -54,6 +65,17 @@
 
 .form textarea {
     height: 130px;
+}
+
+/* ------------ queries -----------------*/
+@media (max-width:1140px) {
+    .contact {
+        grid-template-columns: none;
+        grid-template-rows: 1fr auto;
+    }
+    #map {
+        margin: auto;
+    }
 }
 
 
