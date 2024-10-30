@@ -90,9 +90,9 @@ ul, li {
 }
 
 .line {
-    border: none; /* Quitar el borde por defecto */
-    height: 2px; /* Altura de la línea */
-    background-color: var(--primary-100); /* Color de la línea */
+    border: none;
+    height: 2px; 
+    background-color: var(--primary-100); 
     margin: 10px 0 20px 0px; 
     border-radius: 4px;
     opacity: 1;
@@ -106,7 +106,7 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
     font-weight: var(--medium-text);
     margin: 20px 0;
-    font-size: clamp(2rem, 5vw, 4rem); /*responsive*/
+    font-size: clamp(1.5rem, 4vw, 2.5rem); 
 }
 
 .h1-center {
@@ -116,7 +116,7 @@ h1 {
 } 
 
 h2 {
-    font-size: clamp(1.5rem, 4vw + 0.5rem, 3rem);
+    font-size: clamp(1.25rem, 3vw + 0.25rem, 2rem);
     font-weight: 700 !important;
     text-transform: capitalize;
     margin: 16px 0;
@@ -124,19 +124,19 @@ h2 {
 }
 
 h3 {
-    font-size: clamp(1.25rem, 3vw + 0.25rem, 2.5rem); /* De 1.25rem a 2.5rem */
+    font-size: clamp(1rem, 2.5vw + 0.125rem, 1.75rem); /* De 1rem a 1.75rem */
 }
 
 h4 {
-    font-size: clamp(1rem, 2vw + 0.125rem, 2rem); /* De 1rem a 2rem */
+    font-size: clamp(0.875rem, 2vw + 0.1rem, 1.5rem); /* De 0.875rem a 1.5rem */
 }
 
 h5 {
-    font-size: clamp(0.875rem, 1.5vw + 0.1rem, 1.5rem); /* De 0.875rem a 1.5rem */
+    font-size: clamp(0.75rem, 1.5vw + 0.075rem, 1.25rem); /* De 0.75rem a 1.25rem */
 }
 
 h6 {
-    font-size: clamp(0.75rem, 1vw + 0.1rem, 1.25rem); /* De 0.75rem a 1.25rem */
+    font-size: clamp(0.625rem, 1vw + 0.075rem, 1rem); /* De 0.625rem a 1rem */
 }
 
 .white {
@@ -166,12 +166,12 @@ input, textarea {
     border: 1px solid var(--text-200);
     transition: border-color 0.3s;
     border-radius: var(--border-radius);
-    background-color: var(--color-card);
+    background-color: var(--bg-200);
     padding: 4px 16px;
     height: 32px;
 }
 input:focus, textarea:focus{
-    border-color: var(--color-terc);
+    border-color: var(--primary-200);
     outline: none;
 }
 
@@ -273,28 +273,6 @@ button:hover {
     display: flex;
     justify-content: end;
 }
-
-/* ----- stars --------*/
-/* .stars {
-    display: inline-block;
-    position:relative;
-    font-size: 2em;
-    color:var(--primary-300);
-}
-
-.stars::before {
-    content: '★★★★★';
-    color:var(--accent-200);
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-}
-
-.stars[data-rating]::before {
-    width: calc(20% * var(--rating));
-} */
 
 .star-icon {
     position: absolute;
