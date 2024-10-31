@@ -1,8 +1,14 @@
 .product-card {
     width: max(226px, 16vw);
     max-width: 300px;
-    height: 300px;
+    height: max-content;
     background: var(--bg-300);
+    overflow: hidden;
+}
+.product-card a {
+    display: grid;
+    grid-template-rows: 235px max-content;
+    /* background-color: aqua; */
 }
 
 .icons-product-card {
@@ -21,11 +27,11 @@
 }
 
 .product-card-title {
-    height: 3rem;
-    white-space: nowrap;
+    height: 4rem;
+    /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 90%;
+    max-width: 17rem;
     margin: 0;
     padding: 0;
     color: var(--text-100);
