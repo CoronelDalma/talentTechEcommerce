@@ -27,7 +27,7 @@
 }
 
 .product-card-title {
-    height: 4rem;
+    height: 4.5rem;
     /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;

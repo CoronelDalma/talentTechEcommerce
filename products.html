@@ -16,30 +16,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/product-card.css">
-    <style>
-        .carousel-inner {
-            padding: 1rem 0;
-        }
-        .carousel-item img {
-            width: 100%; 
-            height: 400px; 
-            object-fit: cover; 
-            background-color: var(--bg-200);
-        }
-        .carousel-control-next, .carousel-control-prev {
-            top: 50%;
-            transform: translateY(-50%);
-            width: 7%;
-            height: 10%;
-            opacity: 1;
-        }
-        .carousel-control-next{
-            border-radius: var(--border-radius) 0 0 var(--border-radius);
-        }
-        .carousel-control-prev{
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
     <header>
@@ -74,11 +51,21 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <div class="row">
-                <div class="col-3" style="background-color: aquamarine;"> Columna 1</div>
-                <div class="col-9" style="background-color: beige;">
+            <div class="row mt-3 mb-3">
+                <div class="col-3 px-auto">
+                     <h5>Categorías</h5>
+                     <hr class="line primary-2">
+                     <ul class="categorie-filter">
+                        <li><a href="" class="d-flex align-items-center justify-content-between"><span>Categoría 1</span><i class="fa-solid fa-shirt icon-link"></i></a></li>
+                        <li><a href="" class="d-flex align-items-center justify-content-between"><span>Categoría 2</span><i class="fa-solid fa-book icon-link"></i></a></li>
+                        <li><a href="" class="d-flex align-items-center justify-content-between"><span>Categoría 3</span><i class="fa-solid fa-gamepad icon-link"></i></a></li>
+                        <li><a href="" class="d-flex align-items-center justify-content-between"><span>Categoría 4</span><i class="fa-solid fa-bone icon-link"></i></a></li>
+                        <li><a href="" class="d-flex align-items-center justify-content-between"><span>Categoría 5</span><i class="fa-solid fa-apple-whole icon-link"></i></a></li>
+                     </ul>
+                    </div>
+                <div class="col-9">
                     <ul class="container-cards">
-                        <li class="card product-card">
+                        <li class="my-card product-card">
                             <a href="product.html">
                                 <div class="image-container imageh-75">
                                     <div class="icons-product-card">
@@ -99,7 +86,7 @@
                                 </div>
                             </a> 
                         </li>
-                        <li class="card product-card">
+                        <li class="my-card product-card">
                             <a href="product.html">
                                 <div class="image-container imageh-75">
                                     <div class="icons-product-card">
@@ -120,7 +107,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="card product-card">
+                        <li class="my-card product-card">
                             <a href="product.html">
                                 <div class="image-container imageh-75">
                                     <div class="icons-product-card">
@@ -141,7 +128,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="card product-card">
+                        <li class="my-card product-card">
                             <a href="product.html">
                                 <div class="image-container imageh-75">
                                     <div class="icons-product-card">
@@ -162,7 +149,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="card product-card">
+                        <li class="my-card product-card">
                             <a href="product.html">
                                 <div class="image-container imageh-75">
                                     <div class="icons-product-card">
@@ -184,6 +171,24 @@
                             </a>
                         </li>
                     </ul>
+                    <!-- Pagination -->
+                    <nav aria-label="Search results pages">
+                        <ul class="pagination justify-content-center mt-1">
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
                 </div>
             </div>
         </div>

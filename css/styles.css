@@ -7,7 +7,6 @@
     --color-card:#F7F7F7;
 
     /* aicolors.co orange flat shadow*/
-    /* --primary-100:#FF6600; */
     --primary-100:#FF7D1B;
     --primary-200:#ff983f;
     --primary-300:#ffffa1;
@@ -96,6 +95,10 @@ ul, li {
     margin: 10px 0 20px 0px; 
     border-radius: 4px;
     opacity: 1;
+}
+
+.primary-2 {
+    background-color: var(--primary-200);
 }
 
 
@@ -220,7 +223,7 @@ button:hover {
     column-gap: 8px;
 }
 
-.card {
+.my-card {
     border-radius: var(--border-radius);
     box-shadow: 0 2px 5px var(--shadow-color);
 }
@@ -265,7 +268,7 @@ button:hover {
     height: 81%; 
 }
 
-.card:hover, .category-image:hover {
+.my-card:hover, .category-image:hover {
     transform: scale(1.05);
 }
 

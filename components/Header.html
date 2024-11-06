@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- custome styles -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header class="header">
@@ -31,7 +33,7 @@
         <div class="header-nav">
             <div class="nav-left">
                 <nav>
-                    <ul class="nav justify-content-center">
+                    <ul class="nav justify-content-center align-items-center">
                         <li>
                             <a href="index.html">Inicio</a>
                         </li>
@@ -40,6 +42,20 @@
                         </li>
                         <li>
                             <a href="contacto.html">Contacto</a>
+                        </li>
+                        <li>
+                            <div class="btn-group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Categorías
+                                </button>
+                                <ul class="dropdown-menu p-2">
+                                  <li><a href="/products.html">Categoria 1</a></li>
+                                  <li><a href="/products.html">Categoria 2</a></li>
+                                  <li><a href="/products.html">Categoria 3</a></li>
+                                  <li><a href="/products.html">Categoria 4</a></li>
+                                </ul>
+                              </div>
+                              
                         </li>
                     </ul>
                 </nav>
@@ -50,6 +66,7 @@
                         <li>
                             <a href="cart.html">
                                 <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                                <span class="cart-count">2</span>
                             </a>
                         </li>
                     </ul>
