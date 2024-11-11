@@ -45,12 +45,12 @@
 }
 
 a {
-    color: var(--color-fuente-second);
+    color: var(--text-200);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--color-terc);
+    color: var(--primary-100);
 }
 
 .nav-right {
@@ -70,6 +70,4 @@ a:hover {
     line-height: 20px; /* Centra el texto verticalmente */
     font-weight: bold;
 }
- 
- 
  /*------------------ FIN HEADER -------*/

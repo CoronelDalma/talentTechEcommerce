@@ -6,7 +6,7 @@
 }
 
 .contactUs {
-    background-color: var(--color-card);
+    background-color: var(--bg-200);
     border-radius: var(--border-radius);
     padding: 60px;
     display: flex;
@@ -30,7 +30,7 @@
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: var(--color-fuente-second);
+    color: var(--text-200);
     margin-bottom: 5px;
 }
 
