@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El producto</title>
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <!-- custome styles -->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <header>
+        <div id="header"></div>
+    </header>
+
+    <main>
+        <section class="product">
+            <div class="product-container">
+                <div class="product-images">
+                    <img src="./images/categories/food.jpg" alt="Imagen del Producto" class="card-image">
+                </div>
+                <div class="product-info">
+                    <h1>Nombre del Producto</h1>
+                    <div class="price-info">
+                        <p class="price-tag">$99.99</p>
+                        <p class="product-stock">En stock</p>
+                    </div>
+                    <p class="product-description">Descripción detallada del producto. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.</p>
+                    <div class="quantity">
+                        <input type="number" value="1" min="1">
+                    </div>
+                    <button class="btn-clear" style="margin-top: 1rem;">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+        <section class="reviews">
+            <div class="section-header">
+                <h6>Destacadas</h6>
+                <div class="section-title">
+                    <h2>Reseñas</h2>
+                </div>
+            </div>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <h3>Juan Pérez</h3>
+                    <div class="star-icon star-review">3<i class="fa-solid fa-star"></i></div>
+                    <p>¡Excelente servicio y productos de alta calidad! Muy recomendado.</p>
+                </div>
+                <div class="review-card reviewer-name">
+                    <h3>María López</h3>
+                    <div class="star-icon star-review">5<i class="fa-solid fa-star"></i></div>
+                    <p>Me encantó la experiencia de compra, todo llegó rápido y en perfectas condiciones.</p>
+                </div>
+                <div class="review-card reviewer-name">
+                    <h3>María González</h3>
+                    <div class="star-icon star-review">4<i class="fa-solid fa-star"></i></div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis eveniet nemo nulla ipsum eaque ipsam quae dolor natus amet?</p>
+                </div>
+                <div class="review-card reviewer-name">
+                    <h3>María González</h3>
+                    <div class="star-icon star-review">4<i class="fa-solid fa-star"></i></div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis eveniet nemo nulla ipsum eaque ipsam quae dolor natus amet?</p>
+                </div>
+                <div class="review-card reviewer-name">
+                    <h3>María González</h3>
+                    <div class="star-icon star-review">4<i class="fa-solid fa-star"></i></div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis eveniet nemo nulla ipsum eaque ipsam quae dolor natus amet?</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="footer"></div>
+    </footer>
+    <!-- carga de componentes  -->
+    <script>
+        fetch('Components/Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+        });
+    </script>
+    
+    <script>
+        fetch('Components/Footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        });
+    </script>
+</body>
+</html>
