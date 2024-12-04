@@ -5,7 +5,7 @@ fetch('json/categories.json')
     fetch('https://dummyjson.com/products/categories')
     .then(res => res.json())
     .then(data => {
-        const categoryList=document.querySelector(".categorie-filter");
+        const categoryList=document.querySelector(".category-filter");
         data.forEach(category => {
             const iconClass= iconMap[category.slug] || "fa-question";
             categoryList.innerHTML += `
