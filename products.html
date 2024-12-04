@@ -56,135 +56,35 @@
                      <h5>Categorías</h5>
                      <hr class="line primary-2">
                      <ul class="categorie-filter">
-
+                        <!--  elements are added through the script.js -->
                      </ul>
-                    </div>
+                </div>
                 <div class="col-9">
                     <ul class="container-cards">
-                        <li class="my-card product-card">
-                            <a href="product.html">
-                                <div class="image-container imageh-75">
-                                    <div class="icons-product-card">
-                                        <div class="star-icon">5<i class="fa-solid fa-star"></i></div>
-                                        <div class="price-tag">$5000</div>
-                                    </div>
-                                    <img src="images/categories/food.jpg" alt="category-food" class="card-image product-image">
-                                </div>
-                                <div class="info-product-card">
-                                    <div class="info-card">
-                                        <p class="white">Action</p>
-                                        <h6 class="product-card-title">Campera A</h6>
-                                        
-                                    </div>
-                                    <div class="card-btn">
-                                        <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
-                                    </div>
-                                </div>
-                            </a> 
-                        </li>
-                        <li class="my-card product-card">
-                            <a href="product.html">
-                                <div class="image-container imageh-75">
-                                    <div class="icons-product-card">
-                                        <div class="star-icon">5<i class="fa-solid fa-star"></i></div>
-                                        <div class="price-tag">$5000</div>
-                                    </div>
-                                    <img src="images/categories/food.jpg" alt="category-food" class="card-image product-image">
-                                </div>
-                                <div class="info-product-card">
-                                    <div class="info-card">
-                                        <p class="white">Action</p>
-                                        <h6 class="product-card-title">Lorem, ipsum.</h6>
-                                        
-                                    </div>
-                                    <div class="card-btn">
-                                        <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="my-card product-card">
-                            <a href="product.html">
-                                <div class="image-container imageh-75">
-                                    <div class="icons-product-card">
-                                        <div class="star-icon">1<i class="fa-solid fa-star"></i></div>
-                                        <div class="price-tag">$5000</div>
-                                    </div>
-                                    <img src="images/categories/food.jpg" alt="category-food" class="card-image product-image">
-                                </div>
-                                <div class="info-product-card">
-                                    <div class="info-card">
-                                        <p class="white">Action</p>
-                                        <h6 class="product-card-title">Lorem ipsum dolor sit amet consectetur</h6>
-                                        
-                                    </div>
-                                    <div class="card-btn">
-                                        <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="my-card product-card">
-                            <a href="product.html">
-                                <div class="image-container imageh-75">
-                                    <div class="icons-product-card">
-                                        <div class="star-icon">5<i class="fa-solid fa-star"></i></div>
-                                        <div class="price-tag">$5000</div>
-                                    </div>
-                                    <img src="images/categories/food.jpg" alt="category-food" class="card-image product-image">
-                                </div>
-                                <div class="info-product-card">
-                                    <div class="info-card">
-                                        <p class="white">Action</p>
-                                        <h6 class="product-card-title">Lorem ipsum dolor sit.</h6>
-                                        
-                                    </div>
-                                    <div class="card-btn">
-                                        <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="my-card product-card">
-                            <a href="product.html">
-                                <div class="image-container imageh-75">
-                                    <div class="icons-product-card">
-                                        <div class="star-icon">3<i class="fa-solid fa-star"></i></div>
-                                        <div class="price-tag">$3000</div>
-                                    </div>
-                                    <img src="images/categories/food.jpg" alt="category-food" class="card-image product-image">
-                                </div>
-                                <div class="info-product-card">
-                                    <div class="info-card">
-                                        <p class="white">Action</p>
-                                        <h6 class="product-card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, earum</h6>
-                                        
-                                    </div>
-                                    <div class="card-btn">
-                                        <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                        <!-- adding product-cards - script -->
                     </ul>
                     <!-- Pagination -->
                     <nav aria-label="Search results pages">
                         <ul class="pagination justify-content-center mt-1">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                            </a>
-                          </li>
-                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                            </a>
-                          </li>
+                            <li class="page-item arrow-item">
+                                <a class="page-link" href="#" aria-label="Previous" id="prevPage">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active" data-page="1"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item" data-page="2"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item" data-page="3"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item" data-page="4"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item" data-page="5"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item" data-page="6"><a class="page-link" href="#">6</a></li>
+                            <li class="page-item" data-page="7"><a class="page-link" href="#">7</a></li>
+                            <li class="page-item arrow-item" >
+                                <a class="page-link" href="#" aria-label="Next" id="nextPage">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
                         </ul>
-                      </nav>
+                    </nav>
                 </div>
             </div>
         </div>
