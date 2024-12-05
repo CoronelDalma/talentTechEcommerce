@@ -66,21 +66,6 @@
     </footer>
 
     <!--- carga de componentes-->
-    <script>
-    fetch('Components/Header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data;
-        });
-    </script>
-
-    <script>
-    fetch('Components/Footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        });
-    </script>
-
+    <script src="js/components.js"></script>
 </body>
 </html>
