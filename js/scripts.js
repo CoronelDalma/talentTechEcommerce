@@ -135,10 +135,19 @@ function displayPagination(pages) {
     
 }
 
+/* --- first data load ----*/
 const limit = 30;
 let pages = 0;
 window.addEventListener("load", () => {
-    fetch('https://dummyjson.com/products')
+    var search = localStorage.getItem("search");
+    var url = 'https://dummyjson.com/products';
+    console.log("search: ", search);
+    if(search){
+        url =  `https://dummyjson.com/products/search?q=${search} `
+        localStorage.removeItem("search");
+    }
+
+    fetch(url)
     .then(res => res.json())
     .then(data => {
         displayData(data);
@@ -168,8 +177,3 @@ function updatePagination() {
     updateArrows();
     updateData(currentPage);
 }
-
-
-
-
-
