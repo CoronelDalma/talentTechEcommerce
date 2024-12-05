@@ -43,30 +43,40 @@ function updateData(currentPage) {
 function displayData(data) {
     const container = document.querySelector('.container-cards');
     container.innerHTML = '';
-    data.products.forEach(product => {
-        container.innerHTML += `
-            <li class="my-card product-card">
-                <a href="product.html">
-                    <div class="image-container imageh-75">
-                        <div class="icons-product-card">
-                            <div class="star-icon">${product.rating}<i class="fa-solid fa-star"></i></div>
-                            <div class="price-tag">${product.price}</div>
+    if (data.total > 0) {
+        data.products.forEach(product => {
+            container.innerHTML += `
+                <li class="my-card product-card">
+                    <a href="product.html">
+                        <div class="image-container imageh-75">
+                            <div class="icons-product-card">
+                                <div class="star-icon">${product.rating}<i class="fa-solid fa-star"></i></div>
+                                <div class="price-tag">${product.price}</div>
+                            </div>
+                            <img src=${product.images[0]} alt=${product.title} class="card-image product-image">
                         </div>
-                        <img src=${product.images[0]} alt=${product.title} class="card-image product-image">
-                    </div>
-                    <div class="info-product-card">
-                        <div class="info-card">
-                            <p class="white">${product.category}</p>
-                            <h6 class="product-card-title">${product.title}</h6>
+                        <div class="info-product-card">
+                            <div class="info-card">
+                                <p class="white">${product.category}</p>
+                                <h6 class="product-card-title">${product.title}</h6>
+                            </div>
+                            <div class="card-btn">
+                                <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
+                            </div>
                         </div>
-                        <div class="card-btn">
-                            <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
-                        </div>
-                    </div>
-                </a> 
-            </li>
+                    </a> 
+                </li>
+            `;
+        })
+    } else {
+        container.innerHTML = `
+            <div class="no-results">
+                <h3>No se encontraron resultados</h3>
+                <img src="./images/undraw_searching.svg" alt="No se encontraron resultados"> 
+            </div>
         `;
-    })
+    }
+
 }
 
 var pageItems;
@@ -151,9 +161,11 @@ window.addEventListener("load", () => {
     .then(res => res.json())
     .then(data => {
         displayData(data);
-        pages = Math.ceil(data.total / limit);
-        displayPagination(pages);
-        updateArrows();
+        if (data.total > 0) {
+            pages = Math.ceil(data.total / limit);
+            displayPagination(pages);
+            updateArrows();
+        }
     });
 })
 
