@@ -31,8 +31,8 @@
                     <p class="white lh-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure distinctio cupiditate eum alias, error velit. Doloremque quaerat dolores cumque nisi.</p>
                 </div>
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Buscar productos...">
-                    <button class="search-button">Buscar</button>
+                    <input type="text" class="search-input2" placeholder="Buscar productos...">
+                    <button class="search-button2">Buscar</button>
                 </div>
             </div>
             <div class="welcome-image">
@@ -220,6 +220,19 @@
         <div id="footer"></div>
     </footer>
 
+    <script>
+        var btn = document.querySelector(".search-button2");
+
+        btn.addEventListener('click', function(event){
+            event.preventDefault();
+            
+            var search = document.querySelector(".search-input2").value;
+            if (search) {
+                localStorage.setItem("search", search);
+                window.location.href = "products.html";
+            }
+        })
+    </script>
     <!-- carga de componentes  -->
     <script src="js/components.js"></script>
     <!-- bootstrap -->
