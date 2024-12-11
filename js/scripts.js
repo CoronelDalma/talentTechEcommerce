@@ -8,7 +8,7 @@ fetch('json/categories.json')
         const categoryList=document.querySelector(".category-filter");
 
         data.forEach(category => {
-            const iconClass= iconMap[category.slug] || "fa-question";
+            const iconClass= iconMap[category.slug].icon || "fa-question";
             categoryList.innerHTML += `
                 <li><a href="${category.url}" class="category-link d-flex align-items-center justify-content-between"><span>${category.name}</span><i class="fa-solid ${iconClass} icon-link"></i></a></li>
             `;
@@ -40,6 +40,14 @@ function updateData(currentPage) {
     });
 }
 
+function addCart(product) {
+    console.log(product);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${product.title} ha sido agregado al carrito!`);
+}
+
 function displayData(data) {
     const container = document.querySelector('.container-cards');
     container.innerHTML = '';
@@ -60,13 +68,24 @@ function displayData(data) {
                                 <p class="white">${product.category}</p>
                                 <h6 class="product-card-title">${product.title}</h6>
                             </div>
-                            <div class="card-btn">
-                                <button><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
-                            </div>
                         </div>
                     </a> 
+                    <div class="card-btn">
+                        <button class="add-cart" id=${product.id}><i class="fa-solid fa-cart-plus fa-xl "></i></button>   
+                    </div>
                 </li>
             `;
+
+            var addCartBtn =  document.querySelectorAll('.add-cart');
+            addCartBtn.forEach(btn => {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+                //console.log(btn);
+                //console.log(data.products[(btn.id % limit)-1]);
+                addCart(data.products[(btn.id % limit)-1]);
+            })
+        })
+
         })
     } else {
         container.innerHTML = `
@@ -151,7 +170,7 @@ let pages = 0;
 window.addEventListener("load", () => {
     var search = localStorage.getItem("search");
     var url = 'https://dummyjson.com/products';
-    console.log("search: ", search);
+    //console.log("search: ", search);
     if(search){
         url =  `https://dummyjson.com/products/search?q=${search} `
         localStorage.removeItem("search");
