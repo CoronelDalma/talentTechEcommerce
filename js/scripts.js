@@ -41,11 +41,15 @@ function updateData(currentPage) {
 }
 
 function addCart(product) {
-    console.log(product);
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${product.title} ha sido agregado al carrito!`);
+}
+
+function seeProduct(product) {
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    window.location.href = "product.html";
 }
 
 function displayData(data) {
@@ -55,7 +59,7 @@ function displayData(data) {
         data.products.forEach(product => {
             container.innerHTML += `
                 <li class="my-card product-card">
-                    <a href="product.html">
+                    <a href="product.html" class="product-${product.id}" id="${product.id}">
                         <div class="image-container imageh-75">
                             <div class="icons-product-card">
                                 <div class="star-icon">${product.rating}<i class="fa-solid fa-star"></i></div>
@@ -76,15 +80,22 @@ function displayData(data) {
                 </li>
             `;
 
+            // add cart buttons
             var addCartBtn =  document.querySelectorAll('.add-cart');
             addCartBtn.forEach(btn => {
-            btn.addEventListener('click', function(event) {
-                event.preventDefault();
-                //console.log(btn);
-                //console.log(data.products[(btn.id % limit)-1]);
-                addCart(data.products[(btn.id % limit)-1]);
+                btn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    addCart(data.products[(btn.id % limit)-1]);
+                })
             })
-        })
+            // see product
+            var links = document.querySelectorAll('[class^="product-"]');
+            links.forEach((link) => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    seeProduct(data.products[(link.id % limit)-1]);
+                })          
+            })
 
         })
     } else {
@@ -95,7 +106,6 @@ function displayData(data) {
             </div>
         `;
     }
-
 }
 
 var pageItems;
@@ -170,7 +180,6 @@ let pages = 0;
 window.addEventListener("load", () => {
     var search = localStorage.getItem("search");
     var url = 'https://dummyjson.com/products';
-    //console.log("search: ", search);
     if(search){
         url =  `https://dummyjson.com/products/search?q=${search} `
         localStorage.removeItem("search");
