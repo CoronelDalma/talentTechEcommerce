@@ -42,7 +42,15 @@ function updateData(currentPage) {
 
 function addCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
+
+    // modifications to the json to not add repeats and only add the quantity that is in the cart
+    let existingProduct = cart.length>0 ? cart.find(item => item.id === product.id) : false;
+    if (existingProduct) existingProduct.inTheCart +=1
+    else {
+        product.inTheCart = 1;
+        cart.push(product);
+    }
+    // save
     localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${product.title} ha sido agregado al carrito!`);
 }

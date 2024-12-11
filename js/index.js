@@ -18,7 +18,7 @@ fetch('json/categories.json')
     });
 
     var categoryCards = document.querySelectorAll(".category-card");
-    console.log(categoryCards);
+    //console.log(categoryCards);
     categoryCards.forEach(card => {
         card.addEventListener('click', function(event) {
             event.preventDefault();

@@ -1,5 +1,10 @@
 // components
 /* ----- header -----*/
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.querySelector(".cart-count").innerText = cart.length < 10 ? `${cart.length}` : "+9";
+}
+
 fetch('Components/Header.html')
 .then(response => response.text())
 .then(data => {
@@ -15,7 +20,11 @@ fetch('Components/Header.html')
             window.location.href = "products.html";
         }
     })
-});
+
+    // cart
+    updateCartCount();
+    
+}); 
 
 /* ----- footer -----*/
 fetch('Components/Footer.html')
