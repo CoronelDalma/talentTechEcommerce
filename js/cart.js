@@ -28,10 +28,37 @@ function removeItem(id) {
     displayCart();
 }
 
+// quantities
+function decrementItem(id) {
+    let cart = getItems();
+    const item = cart.find(item => item.id === id);
+    if (item && item.inTheCart>1) {
+        item.inTheCart= item.inTheCart - 1;
+        localStorage.setItem('cart', JSON.stringify(cart));    
+    }
+}
+
+function incrementItem(id) {
+    let cart = getItems();
+    const item = cart.find(item => item.id === id);
+    if (item && item.stock > item.inTheCart) {
+        let newValor = item.inTheCart +1;
+        item.inTheCart=newValor;
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+}
+function modifyQuantities(event) {
+    const productId = Number(event.target.getAttribute('data-id'));
+    event.target.id === 'decrement' ? decrementItem(productId) : incrementItem(productId);
+    displayCart();
+    event.stopImmediatePropagation();
+}
+
+// display
 function displayCart() {
     let items = getItems();
     var total = 0;
-    //console.log(items);
+
     const container = document.querySelector(".container");
     container.innerHTML = '';
     container.innerHTML += `
@@ -39,7 +66,6 @@ function displayCart() {
     `;
     items.forEach(item => {
         if (item) {
-            console.log(item);
             total += item.price*item.inTheCart;
             container.innerHTML += `
                 <div class="cart-item" id="item-${item.id}">
@@ -51,11 +77,11 @@ function displayCart() {
                     <div class="price">$${item.price}</div>
                     <div class="quantity-total">
                         <div class="input-group">
-                            <button id="decrement">-</button>
+                            <button id="decrement" data-id="${item.id}">-</button>
                             <input type="text" value="${item.inTheCart}" id="quantity" readonly>
-                            <button id="increment">+</button>
+                            <button id="increment" data-id="${item.id}">+</button>
                         </div>
-                        <div class="total">$${item.price * item.inTheCart }</div>
+                        <div class="total">$${(item.price * item.inTheCart).toFixed(2)}</div>
                     </div>
                     <div class="cart-btn">
                         <button type="button" class="btn btn-danger" data-id="${item.id}">
@@ -68,19 +94,20 @@ function displayCart() {
     })
 
     container.addEventListener('click', function(event) {
-        console.log("hizo click en");
-        console.log(event);
         if (event.target && event.target.classList.contains('btn-danger')) {
             const productId = event.target.getAttribute('data-id');
-            console.log("product id "+productId);
             removeItem(Number(productId));
+        }
+
+        if (event.target && (event.target.id === 'decrement' || event.target.id === 'increment')) {
+            modifyQuantities(event);
         }
     });
 
     if (items.length>0) {
         container.innerHTML +=  `
             <div class="cart-total">
-                <h2>Total: $${total}</h2>
+                <h2>Total: $${total.toFixed(2)}</h2>
                 <a href="./checkout.html"><button>Pagar</button></a>
             </div>
         `;
