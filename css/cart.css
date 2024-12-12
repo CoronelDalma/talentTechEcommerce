@@ -67,6 +67,12 @@
     justify-content: end;
 }
 
+.disabled {
+    opacity: 0.5;           
+    pointer-events: none;      
+    cursor: not-allowed;
+}
+
 /* --- media queries ---*/
 @media (max-width: 1200px) {
     .cart-title {

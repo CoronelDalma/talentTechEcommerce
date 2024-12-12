@@ -76,11 +76,15 @@ function displayCart() {
                     </div>
                     <div class="price">$${item.price}</div>
                     <div class="quantity-total">
-                        <div class="input-group">
-                            <button id="decrement" data-id="${item.id}">-</button>
-                            <input type="text" value="${item.inTheCart}" id="quantity" readonly>
-                            <button id="increment" data-id="${item.id}">+</button>
+                        <div>
+                            <div class="input-group">
+                                <button id="decrement" data-id="${item.id}" class=${(item.inTheCart===1) ? "disabled" : ""}>-</button>
+                                <input type="text" value="${item.inTheCart}" id="quantity" readonly>
+                                <button id="increment" data-id="${item.id}" class=${(item.inTheCart===item.stock) ? "disabled" : ""}>+</button>
+                            </div>
+                            <p>${(item.inTheCart===item.stock) ? "Stock: "+item.stock : ""}</p>
                         </div>
+
                         <div class="total">$${(item.price * item.inTheCart).toFixed(2)}</div>
                     </div>
                     <div class="cart-btn">
