@@ -53,6 +53,8 @@ function updateCartCount() {
 }
 
 function addCart(product) {
+    console.log("agregar el producto");
+    console.log(product);
     let cart = getItems();
 
     // modifications to the json to not add repeats and only add the quantity that is in the cart
@@ -126,7 +128,8 @@ function displayData(data) {
             addCartBtn.forEach(btn => {
                 btn.addEventListener('click', function(event) {
                     event.preventDefault();
-                    let index = ((btn.id-1) % data.products.length + data.products.length) % data.products.length;
+                    //let index = (((btn.id-1) % data.products.length) + data.products.length) % data.products.length;
+                    let index = data.products.findIndex(item => item.id === Number(btn.id));
                     addCart(data.products[index]);
                 })
             })
