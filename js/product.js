@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     var product = JSON.parse(localStorage.getItem("selectedProduct"));
-    console.log(product);
+    var cart = JSON.parse(localStorage.getItem("cart")) ||[];
+    let find = cart.find(item => item.id === product.id);
 
     document.title =product.title;
 
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <p class="product-description">${product.description}</p>
             <div class="quantity">
-                <input type="number" value="1" min="1">
+                <input type="number" value="${find ? find.inTheCart : 1}" min="1" max="${product.stock}" id="qty">
             </div>
             <button class="btn-clear" style="margin-top: 1rem;">Agregar al carrito</button>
         </div>
@@ -34,6 +35,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p>${review.comment}</p>
             </div>
         `
+    })
+
+    //update cart
+    const addCartBtn = document.querySelector(".btn-clear");
+    addCartBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        let qty = Number(document.getElementById("qty").value);
+        product.inTheCart = qty;
+        find ? find.inTheCart = qty : cart.push(product);
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.title} ha sido agregado al carrito!`);
+        updateCartCount();
     })
 
 })
