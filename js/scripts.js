@@ -40,17 +40,22 @@ function updateData(currentPage) {
     });
 }
 
-function updateCartCount() {
+// ----- cart
+function getItems() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    return cart;
+}
+function updateCartCount() {
+    let cart = getItems();
     document.querySelector(".cart-count").innerText = cart.length < 10 ? `${cart.length}` : "+9";
 }
 
 function addCart(product) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cart = getItems();
 
     // modifications to the json to not add repeats and only add the quantity that is in the cart
     let existingProduct = cart.length>0 ? cart.find(item => item.id === product.id) : false;
-    if (existingProduct) existingProduct.inTheCart +=1
+    if (existingProduct && existingProduct.stock>existingProduct.inTheCart) existingProduct.inTheCart +=1
     else {
         product.inTheCart = 1;
         cart.push(product);
@@ -59,11 +64,30 @@ function addCart(product) {
     localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${product.title} ha sido agregado al carrito!`);
     updateCartCount();
+    updateQuantity();
 }
 
 function seeProduct(product) {
     localStorage.setItem("selectedProduct", JSON.stringify(product));
     window.location.href = "product.html";
+}
+
+function seeQuantity() {
+    var addCartBtn =  document.querySelectorAll('.add-cart');
+    cart.forEach(item => {
+        let btn = Array.from(addCartBtn).find(button => Number(button.id) === item.id); 
+        btn && (btn.innerHTML = `<i class="fa-solid fa-cart-plus fa-xl "></i>${item.inTheCart}`);
+    })
+}
+function updateQuantity() {
+    var addCartBtn =  document.querySelectorAll('.add-cart');
+    let cart = getItems();
+    cart.forEach(item => {
+        let btn = Array.from(addCartBtn).find(button => Number(button.id) === item.id);
+        if (btn){
+            btn.innerHTML = `<i class="fa-solid fa-cart-plus fa-xl "></i>${item.inTheCart}`;
+        }     
+    })
 }
 
 function displayData(data) {
@@ -110,7 +134,6 @@ function displayData(data) {
                     seeProduct(data.products[(link.id % limit)-1]);
                 })          
             })
-
         })
     } else {
         container.innerHTML = `
@@ -191,6 +214,7 @@ function displayPagination(pages) {
 /* --- first data load ----*/
 const limit = 30;
 let pages = 0;
+const cart = getItems();
 window.addEventListener("load", () => {
     var search = localStorage.getItem("search");
     var url = 'https://dummyjson.com/products';
@@ -208,6 +232,7 @@ window.addEventListener("load", () => {
             displayPagination(pages);
             updateArrows();
         }
+        seeQuantity();
     });
 })
 
