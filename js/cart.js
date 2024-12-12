@@ -112,9 +112,27 @@ function displayCart() {
         container.innerHTML +=  `
             <div class="cart-total">
                 <h2>Total: $${total.toFixed(2)}</h2>
-                <a href="./checkout.html"><button>Pagar</button></a>
+                <a href="./checkout.html" class="goCheckout"><button id="finalizar-compra">Pagar</button></a>
             </div>
         `;
+        document.querySelector(".goCheckout").addEventListener("click" , function(event) {
+            event.preventDefault();
+        })
+
+        document.getElementById('finalizar-compra').addEventListener('click', () => {
+            Swal.fire({
+            title: 'Compra Procesada',
+            text: 'Se ha procesado la compra #1200',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+            });
+            
+            localStorage.removeItem('cart'); 
+            setTimeout(() => {
+                window.location.href = 'index.html'; 
+            }, 6000);     
+        });
+
     } else {
         container.innerHTML +=  `
             <div class="cart-total">
@@ -123,5 +141,24 @@ function displayCart() {
         `;
     }
 }
+
+// Botón para finalizar la compra con sweet Alert
+// document.getElementById('finalizar-compra').addEventListener('click', () => 
+//     {
+//         Swal.fire({
+//             title: 'Compra Procesada',
+//             text: 'Se ha procesado la compra #1200',
+//             icon: 'success',
+//             confirmButtonText: 'Aceptar'
+//         });
+
+//         // Limpiar el carrito después de finalizar la compra
+//         localStorage.removeItem('cart'); 
+        
+//         // Redirigir al inicio despues de 4 segundos
+//         setTimeout(() => {
+//         window.location.href = 'index.html'; 
+//         }, 4000);     
+//     });
 
 document.addEventListener('DOMContentLoaded', displayCart);
