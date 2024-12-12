@@ -81,7 +81,7 @@ function seeQuantity() {
     var addCartBtn =  document.querySelectorAll('.add-cart');
     cart.forEach(item => {
         let btn = Array.from(addCartBtn).find(button => Number(button.id) === item.id); 
-        btn && (btn.innerHTML = `<i class="fa-solid fa-cart-plus fa-xl "></i>${item.inTheCart}`);
+        btn && (btn.innerHTML = `${item.inTheCart}<i class="fa-solid fa-cart-plus fa-xl "></i>`);
     })
 }
 function updateQuantity() {
@@ -90,7 +90,7 @@ function updateQuantity() {
     cart.forEach(item => {
         let btn = Array.from(addCartBtn).find(button => Number(button.id) === item.id);
         if (btn){
-            btn.innerHTML = `<i class="fa-solid fa-cart-plus fa-xl "></i>${item.inTheCart}`;
+            btn.innerHTML = `${item.inTheCart}<i class="fa-solid fa-cart-plus fa-xl "></i>`;
         }     
     })
 }
