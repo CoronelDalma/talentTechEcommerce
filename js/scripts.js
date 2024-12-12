@@ -40,6 +40,11 @@ function updateData(currentPage) {
     });
 }
 
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.querySelector(".cart-count").innerText = cart.length < 10 ? `${cart.length}` : "+9";
+}
+
 function addCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -53,6 +58,7 @@ function addCart(product) {
     // save
     localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${product.title} ha sido agregado al carrito!`);
+    updateCartCount();
 }
 
 function seeProduct(product) {
