@@ -24,6 +24,7 @@ fetch('json/categories.json')
                 .then(data => {
                     displayData(data);
                     displayPagination(Math.ceil(data.total / limit));
+                    seeQuantity();
                 })
             })
         })
@@ -37,6 +38,7 @@ function updateData(currentPage) {
     .then(res => res.json())
     .then(data => {
         displayData(data);
+        seeQuantity();
     });
 }
 
@@ -73,6 +75,7 @@ function seeProduct(product) {
 }
 
 function seeQuantity() {
+    const cart = getItems();
     var addCartBtn =  document.querySelectorAll('.add-cart');
     cart.forEach(item => {
         let btn = Array.from(addCartBtn).find(button => Number(button.id) === item.id); 
@@ -123,7 +126,8 @@ function displayData(data) {
             addCartBtn.forEach(btn => {
                 btn.addEventListener('click', function(event) {
                     event.preventDefault();
-                    addCart(data.products[(btn.id % limit)-1]);
+                    let index = ((btn.id-1) % data.products.length + data.products.length) % data.products.length;
+                    addCart(data.products[index]);
                 })
             })
             // see product
@@ -214,7 +218,6 @@ function displayPagination(pages) {
 /* --- first data load ----*/
 const limit = 30;
 let pages = 0;
-const cart = getItems();
 window.addEventListener("load", () => {
     var search = localStorage.getItem("search");
     var url = 'https://dummyjson.com/products';
