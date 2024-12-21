@@ -44,12 +44,12 @@
     margin: 0;
 }
 
-a {
+a, .nav-link {
     color: var(--color-fuente-second);
     text-decoration: none;
 }
 
-a:hover {
+a:hover, .nav-link:hover {
     color: var(--color-terc);
 }
 
