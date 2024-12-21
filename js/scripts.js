@@ -34,7 +34,7 @@ fetch('json/categories.json')
 function updateData(currentPage) {
     // Get products
     const from= limit * (currentPage-1);
-    fetch(`https://dummyjson.com/products?limit=${limit}&skip=${from}&select=title,price,rating,images,category`)
+    fetch(`https://dummyjson.com/products?limit=${limit}&skip=${from}&select=title,price,rating,images,category,description,stock,reviews`)
     .then(res => res.json())
     .then(data => {
         displayData(data);
