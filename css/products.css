@@ -23,7 +23,7 @@
 }
 
 /* ---- links para filtros ---- */
-.categorie-filter {
+.category-filter {
     padding: 8px 12px;
     display: flex;
     flex-direction: column;
@@ -71,4 +71,11 @@
 .pagination .page-item:last-child .page-link {
     border-top-right-radius: 50%; 
     border-bottom-right-radius: 50%;
+}
+
+/* no founds */
+.no-results {
+    text-align: center;
+    margin: auto;
+    margin-top: 6rem;
 }

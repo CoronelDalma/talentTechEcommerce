@@ -31,12 +31,12 @@
                     <p class="white lh-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure distinctio cupiditate eum alias, error velit. Doloremque quaerat dolores cumque nisi.</p>
                 </div>
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Buscar productos...">
-                    <button class="search-button">Buscar</button>
+                    <input type="text" class="search-input2" placeholder="Buscar productos...">
+                    <button class="search-button2">Buscar</button>
                 </div>
             </div>
             <div class="welcome-image">
-                <img src="images/categories/electronic-products.png" alt="electronic products" class="card-image">
+                <img src="https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Watch%20Series%204%20Gold/1.png", alt="electronic products" class="card-image">
             </div>
         </div>
 
@@ -44,47 +44,8 @@
                 <h6>Categorias</h6>
                 <h2>Top categorias</h2>
                 <div class="section-list">
-                    <ul class="container-cards">
-                        <li class="my-card category-card">
-                            <a href="#">
-                                <h6 class="white">Action</h6>
-                                <div class="image-container">
-                                    <img src="images/categories/food.jpg" alt="category-food" class="card-image category-image">
-                                </div>    
-                            </a>  
-                        </li>
-                        <li class="my-card category-card">
-                            <a href="#">
-                                <h6 class="white">Action</h6>
-                                <div class="image-container">
-                                    <img src="images/categories/iphone.jpg" alt="category-food" class="card-image category-image">
-                                </div>
-                            </a>  
-                        </li>
-                        <li class="my-card category-card">
-                            <a href="#">
-                                <h6 class="white">Action</h6>
-                                <div class="image-container">
-                                    <img src="images/categories/juguetes.jpg" alt="category-food" class="card-image category-image">
-                                </div>
-                            </a>  
-                        </li>
-                        <li class="my-card category-card">
-                            <a href="#">
-                                <h6 class="white">Action</h6>
-                                <div class="image-container">
-                                    <img src="images/categories/ropa-mujer.jpg" alt="category-food" class="card-image category-image">
-                                </div>
-                            </a>  
-                        </li>
-                        <li class="my-card category-card">
-                            <a href="#">
-                                <h6 class="white">Action</h6>
-                                <div class="image-container">
-                                    <img src="images/categories/vegetables.jpg" alt="category-food" class="card-image category-image">
-                                </div>
-                            </a>  
-                        </li>
+                    <ul class="container-cards top">
+                        
                     </ul>
             
                 </div>
@@ -94,12 +55,12 @@
             <div class="section-header">
                 <h6>Destacados</h6>
                 <div class="section-title">
-                    <h2>Ropa destacadas</h2>
-                    <button>Ver más</button>
+                    <h2>Productos</h2>
+                    <button><a href="products.html">Ver más</a></button>
                 </div>
             </div>
     
-            <ul class="container-cards">
+            <ul class="container-cards products">
                 <li class="my-card product-card">
                     <a href="product.html">
                         <div class="image-container imageh-75">
@@ -220,24 +181,23 @@
         <div id="footer"></div>
     </footer>
 
+    <script>
+        var btn = document.querySelector(".search-button2");
+
+        btn.addEventListener('click', function(event){
+            event.preventDefault();
+            
+            var search = document.querySelector(".search-input2").value;
+            if (search) {
+                localStorage.setItem("search", search);
+                window.location.href = "products.html";
+            }
+        })
+    </script>
+    <script src="js/index.js"></script>
     <!-- carga de componentes  -->
-    <script>
-        fetch('Components/Header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-        });
-    </script>
-
-    <script>
-        fetch('Components/Footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer').innerHTML = data;
-        });
-    </script>
-
-     <!-- bootstrap -->
+    <script src="js/components.js"></script>
+    <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
