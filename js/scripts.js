@@ -228,6 +228,11 @@ window.addEventListener("load", () => {
         url =  `https://dummyjson.com/products/search?q=${search} `
         localStorage.removeItem("search");
     }
+    var category = localStorage.getItem("category");
+    if (category) {
+        url =  `https://dummyjson.com/products/category/${category}`;
+        localStorage.removeItem("category");
+    }
 
     fetch(url)
     .then(res => res.json())

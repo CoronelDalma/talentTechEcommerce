@@ -17,13 +17,15 @@ fetch('json/categories.json')
         `;
     });
 
+    // view - top categories
     var categoryCards = document.querySelectorAll(".category-card");
-    //console.log(categoryCards);
     categoryCards.forEach(card => {
         card.addEventListener('click', function(event) {
             event.preventDefault();
-
-            console.log(card);
+            let urlParts = card.firstElementChild.href.split("/");
+            const lastPart = urlParts[urlParts.length - 1];
+            localStorage.setItem(`category`, lastPart);
+            window.location.href = "/products.html"
         })
     })
 })
