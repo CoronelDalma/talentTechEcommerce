@@ -88,4 +88,3 @@ fetch(`https://dummyjson.com/products?limit=${limit}&skip=0&select=title,price,r
 .then(data => {
     displayData(data);
 });
-

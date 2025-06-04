@@ -5,6 +5,27 @@ function updateCartCount() {
     document.querySelector(".cart-count").innerText = cart.length < 10 ? `${cart.length}` : "+9";
 }
 
+function changeTheme() {
+    const themeToggle = document.getElementById("theme-toggle");
+    console.log("Theme toggle element:", themeToggle);
+    const currentTheme = localStorage.getItem("theme");
+
+    if (currentTheme === "dark") {
+        document.body.classList.add("dark-theme");
+        themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener("change", function () {
+        if (themeToggle.checked) {
+            document.body.classList.add("dark-theme");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.body.classList.remove("dark-theme");
+            localStorage.setItem("theme", "light");
+        }
+    });
+}
+
 fetch('Components/Header.html')
 .then(response => response.text())
 .then(data => {
@@ -23,6 +44,9 @@ fetch('Components/Header.html')
 
     // cart
     updateCartCount();
+
+    // theme
+    changeTheme();
     
 }); 
 
